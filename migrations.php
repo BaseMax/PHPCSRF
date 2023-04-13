@@ -12,4 +12,4 @@ $dotenv->load();
 
 $app = new Application(__DIR__);
 
-$files = $app->db->applyMigrations();
+$files = $app->db->applyMigration();

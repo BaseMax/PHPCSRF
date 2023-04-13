@@ -31,26 +31,39 @@ class Database
         ];
     }
 
-    public static function applyMigrations()
+    public function applyMigration()
     {
-        $files = scandir(Application::$ROOT_DIR . "/src/Migrations");
+        // $files = scandir(Application::$ROOT_DIR . "/src/Migrations");
 
-        $migrations = [];
+        // $migrations = [];
 
-        foreach ($files as $file) {
-            if (substr($file, 0, 1) === "_")
-                $migrations[] = $file;
-        }
+        // foreach ($files as $file) {
+        //     if (substr($file, 0, 1) === "_")
+        //         $migrations[] = $file;
+        // }
 
-        $tables = [];
+        // foreach ($migrations as $migration) {
 
-        foreach ($migrations as $migration) {
+        //     require_once Application::$ROOT_DIR . "/src/Migrations/$migration";
 
-            require_once Application::$ROOT_DIR . "/src/Migrations/$migration";
+        //     preg_match('/^_\d+_create_(\w+)_table\.php$/', $migration, $matches);
 
-            $file_name = '_0001_create_users_table.php';
-            preg_match('/^_\d+_create_(\w+)_table\.php$/', $file_name, $matches);
-            $tables[] = $matches[1];
-        }
+        //     // $instance = new "App\Migrations\$migration()";
+
+        //     echo "Applying migration $migration\n";
+        //     $instance->up();
+        //     echo "Applied migration $migration\n";
+        // }
+
+        $statment = $this->pdo->prepare("CREATE TABLE IF NOT EXISTS users(
+                                id INT AUTO_INCREMENT PRIMARY KEY,
+                                email VARCHAR(255) NOT NULL,
+                                fullname VARCHAR(255) NOT NULL,
+                                password VARCHAR(255) NOT NULL        
+                    )");
+
+        $statment->execute();
+
+        echo "Migration completed" . PHP_EOL;
     }
 }
