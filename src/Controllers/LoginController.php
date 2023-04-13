@@ -9,9 +9,6 @@ class LoginController extends Controller
 {
     public function show()
     {
-
-        var_dump(CSRF::generate());
-
         return ViewRender::render("login");
     }
 }
