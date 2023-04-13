@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Application\Cookie;
 use App\Application\ViewRender;
 use App\Application\CSRF;
 
@@ -14,11 +15,6 @@ class LoginController extends Controller
 
     public function store()
     {
-        $userData = $this->getBody();
-
-        if (!CSRF::validate($userData["csrf_token"])) {
-            $this->response()->setStatusCode(403);
-            return ViewRender::render("_403");
-        }
+        $this->csrf();
     }
 }
