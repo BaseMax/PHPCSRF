@@ -21,4 +21,11 @@ class Cookie
     {
         return !(Cookie::getCookie() !== $csrf);
     }
+
+    public static function destroyCookie(string $key): bool
+    {
+        setCookie($key, "", time() - 3600, "/");
+
+        return true;
+    }
 }
