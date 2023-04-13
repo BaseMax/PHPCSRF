@@ -8,6 +8,9 @@ $app = new Application(dirname(__DIR__));
 
 session_start();
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__, 'myconfig');
+$dotenv->load();
+
 $app->router->get("/", [App\Controllers\HomeController::class, "home"]);
 
 $app->router->get("/login", [App\Controllers\LoginController::class, "show"]);
