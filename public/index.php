@@ -6,6 +6,7 @@ use App\Application\Application;
 
 $app = new Application();
 
+$app->router->get("/", [App\Controllers\HomeController::class, "home"]);
 
 $app->router->get("/login", [App\Controllers\LoginController::class, "show"]);
 
