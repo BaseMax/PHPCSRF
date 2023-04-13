@@ -3,7 +3,7 @@
         'name' => 'max/phpcsrf',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c9b66488e48f76222dbf241bee8abc5f0d00da16',
+        'reference' => '783de83da641305c0662d8fb616812b892309a83',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'max/phpcsrf' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c9b66488e48f76222dbf241bee8abc5f0d00da16',
+            'reference' => '783de83da641305c0662d8fb616812b892309a83',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
