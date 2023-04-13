@@ -4,12 +4,14 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use App\Application\Application;
 
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+
+
 $app = new Application(dirname(__DIR__));
 
-session_start();
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__, 'myconfig');
-$dotenv->load();
+session_start();
 
 $app->router->get("/", [App\Controllers\HomeController::class, "home"]);
 
