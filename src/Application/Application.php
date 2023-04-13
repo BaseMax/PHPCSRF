@@ -10,4 +10,8 @@ class Application
     {
         $this->router = new Router();
     }
+
+    public function run()
+    {
+    }
 }
