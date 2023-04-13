@@ -25,5 +25,7 @@ $app->router->post("/login", [App\Controllers\LoginController::class, "store"]);
 
 $app->router->post("/register", [App\Controllers\RegisterController::class, "store"]);
 
+$app->router->post("/logout", [App\Controllers\LogoutController::class, "logout"]);
+
 
 $app->run();
