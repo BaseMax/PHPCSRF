@@ -14,6 +14,6 @@ class LoginController extends Controller
 
     public function store()
     {
-        return "here is store";
+        return $this->getBody();
     }
 }
