@@ -14,7 +14,7 @@ class User extends Model
     {
     }
 
-    public function save(): never
+    public function save(): bool
     {
         $table = $this->tableName();
         $attributes = $this->attributes();
@@ -26,6 +26,15 @@ class User extends Model
 
         $statment = self::prepare("INSERT INTO $table ($columns) 
                                     VALUES ($params)");
+
+
+        foreach ($attributes as $attribute) {
+            $statment->bindValue(":$attribute", $this->{$attribute});
+        }
+
+        $statment->execute();
+
+        return true;
     }
 
     public function tableName(): string

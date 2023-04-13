@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Application\Hash;
 use App\Application\ViewRender;
 use App\Models\User;
 use App\Requests\RegisterRequest;
@@ -23,7 +24,7 @@ class RegisterController extends Controller
         $user = new User();
 
         $user->email = $validatedData["email"];
-        $user->password = $validatedData["password"];
+        $user->password = Hash::make($validatedData["password"]);
         $user->fullname = $validatedData["fullname"];
 
         if ($user->save()) {
