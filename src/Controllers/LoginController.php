@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Application\Cookie;
+use App\Application\Redirect;
 use App\Application\ViewRender;
 use App\Requests\LoginRequest;
 use App\Models\User;
@@ -17,8 +19,21 @@ class LoginController extends Controller
     {
         $this->csrf();
 
-        LoginRequest::validate($this->getBody());
+        $validatedData = LoginRequest::validate($this->getBody());
 
         $user = new User();
+
+        $user = $user->login(
+            $validatedData["email"],
+            $validatedData["password"]
+        );
+
+        if (!$user) Redirect::redirectBack();
+
+        Cookie::setSession("session_id", $user["id"]);
+
+        if ($validatedData["remember"]) Cookie::setSessionCookie("session_id", $user["id"]);
+
+        Redirect::redirectTo("dashboard");
     }
 }

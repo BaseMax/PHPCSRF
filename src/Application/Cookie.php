@@ -28,4 +28,18 @@ class Cookie
 
         return true;
     }
+
+    public static function setSession(string $key, string|int $value): bool
+    {
+        $_SESSION[$key] = $value;
+
+        return true;
+    }
+
+    public static function setSessionCookie(string $key, string|int $value): bool
+    {
+        setCookie($key, $value, time() + (3600 * 24 * 10), "/", "", false, true);
+
+        return true;
+    }
 }

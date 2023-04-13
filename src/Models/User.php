@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Application\Application;
+use App\Application\Hash;
 
 class User extends Model
 {
@@ -54,5 +55,25 @@ class User extends Model
     public static function prepare(string $sql)
     {
         return Application::$app->db->pdo->prepare($sql);
+    }
+
+
+    public function login(string $email, string $password): bool| array
+    {
+        $table = $this->tableName();
+
+        // $password = Hash::make($password);
+
+        $statment = self::prepare("SELECT * FROM $table WHERE email = :email");
+
+        $statment->execute([
+            "email" => $email
+        ]);
+
+        $user = $statment->fetch();
+
+        if (!$user || !password_verify($password, $user["password"])) return false;
+
+        return $user;
     }
 }
