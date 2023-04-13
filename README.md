@@ -12,4 +12,4 @@ Simple PHP Application with Cross-Site Request Forgery (CSRF)
 - A welcome page panel
 - Change password page
 
-Copyright 2023, Max  Base
+Copyright 2023, Max Base, Ali Ahmadi

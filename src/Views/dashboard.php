@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <h1>Welcome to your Dashboard</h1>
+                <h1> Hi <?php echo $_SESSION["fullname"] ?> Welcome to your Dashboard</h1>
                 <!-- Logout Form -->
                 <form action="/logout" method="post">
                     <button type="submit" class="btn btn-danger">Logout</button>
