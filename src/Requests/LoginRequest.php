@@ -10,24 +10,21 @@ class LoginRequest implements Request
     {
         $roles = self::roles();
 
-        $roles = self::roles();
-
         foreach ($roles as $attribute => $roles) {
             $value = $userData[$attribute];
             foreach ($roles as $role) {
 
                 $roleName = $role;
-                if (!is_string($role)) {
+                if (!is_string($role))
                     $roleName = $role[0];
-                }
 
-                if ($roleName === self::RULE_REQUIRED && !$value) {
-                    return Redirect::redirectBack();
-                }
 
-                if ($roleName === self::RULE_EMAIL && !self::isEmail($value)) {
+                if ($roleName === self::RULE_REQUIRED && !$value)
                     return Redirect::redirectBack();
-                }
+
+
+                if ($roleName === self::RULE_EMAIL && !self::isEmail($value))
+                    return Redirect::redirectBack();
             }
         }
         return $userData;
@@ -43,9 +40,9 @@ class LoginRequest implements Request
 
     public static function isEmail(string $email): bool
     {
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL))
             return true;
-        }
+
 
         return false;
     }
