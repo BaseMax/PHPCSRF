@@ -12,8 +12,11 @@ class Router
         "delete" => []
     ];
 
-    public function __construct()
+    public Request $request;
+
+    public function __construct(Request $request)
     {
+        $this->request = $request;
     }
 
     public function get(string $path, array $callback)
@@ -26,6 +29,6 @@ class Router
 
     public function resolve()
     {
-        // var_dump($_SERVER);
+        var_dump($this->request->getPath());
     }
 }
