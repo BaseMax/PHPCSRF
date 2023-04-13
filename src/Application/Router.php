@@ -37,7 +37,7 @@ class Router
 
         if (!$callbackArray) {
             Application::$app->response->setStatusCode(404);
-            return ViewRender::render("404");
+            return ViewRender::render("_404");
         }
 
         $controller = new  $callbackArray[0];

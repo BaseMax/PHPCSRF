@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1 class="text-center my-5">Register</h1>
-        <form method="post" action="register.php">
+        <form method="post" action="/register">
             <input type="hidden" name="csrf_token" value="{{csrf}}">
             <div class="form-group">
                 <label for="email">Email:</label>

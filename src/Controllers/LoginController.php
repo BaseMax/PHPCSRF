@@ -11,4 +11,9 @@ class LoginController extends Controller
     {
         return ViewRender::renderWithToken("login");
     }
+
+    public function store()
+    {
+        return "here is store";
+    }
 }

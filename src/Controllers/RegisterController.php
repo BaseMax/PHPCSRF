@@ -10,4 +10,9 @@ class RegisterController extends Controller
     {
         return ViewRender::renderWithToken("register");
     }
+
+    public function store()
+    {
+        return "here is store in register";
+    }
 }
