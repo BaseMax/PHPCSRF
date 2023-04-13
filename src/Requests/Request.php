@@ -4,5 +4,5 @@ namespace App\Requests;
 
 interface Request
 {
-    public function validate(array $userData);
+    public static function validate(array $userData): array;
 }

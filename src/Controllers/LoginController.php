@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Application\Cookie;
 use App\Application\ViewRender;
-use App\Application\CSRF;
+use App\Requests\LoginRequest;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -16,5 +16,9 @@ class LoginController extends Controller
     public function store()
     {
         $this->csrf();
+
+        LoginRequest::validate($this->getBody());
+
+        $user = new User();
     }
 }

@@ -4,7 +4,8 @@ namespace App\Requests;
 
 class RegisterRequest implements Request
 {
-    public function validate(array $userData)
+    public static function validate(array $userData): array
     {
+        return [];
     }
 }
