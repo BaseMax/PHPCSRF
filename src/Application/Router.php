@@ -36,6 +36,7 @@ class Router
         $callbackArray = $this->routes[$httpVerb][$path] ?? [];
 
         if (!$callbackArray) {
+            Application::$app->response->setStatusCode(404);
             return "Page Not Found.";
         }
 
