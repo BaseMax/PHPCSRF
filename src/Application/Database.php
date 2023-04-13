@@ -30,4 +30,27 @@ class Database
             "DB_USER"     => $_ENV["DB_USER"]
         ];
     }
+
+    public static function applyMigrations()
+    {
+        $files = scandir(Application::$ROOT_DIR . "/src/Migrations");
+
+        $migrations = [];
+
+        foreach ($files as $file) {
+            if (substr($file, 0, 1) === "_")
+                $migrations[] = $file;
+        }
+
+        $tables = [];
+
+        foreach ($migrations as $migration) {
+
+            require_once Application::$ROOT_DIR . "/src/Migrations/$migration";
+
+            $file_name = '_0001_create_users_table.php';
+            preg_match('/^_\d+_create_(\w+)_table\.php$/', $file_name, $matches);
+            $tables[] = $matches[1];
+        }
+    }
 }
