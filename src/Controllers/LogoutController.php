@@ -9,6 +9,7 @@ class LogoutController extends Controller
 {
     public function logout()
     {
+        session_unset();
         session_destroy();
         Cookie::destroyCookie("session_id");
         Redirect::redirectTo("login");
