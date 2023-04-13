@@ -13,10 +13,10 @@
             <div class="col-md-8 offset-md-2">
                 <h1>Welcome to your Dashboard</h1>
                 <!-- Logout Form -->
-                <!-- <form action="/logout" method="post">
+                <form action="/logout" method="post">
                     <button type="submit" class="btn btn-danger">Logout</button>
-                </form> -->
-                <a href="/logout"><button class="btn btn-danger">Logout</button></a>
+                </form>
+                <!-- <a href="/logout"><button class="btn btn-danger">Logout</button></a> -->
                 <hr>
                 <!-- Change Password Form -->
                 <!-- <form action="/change_password" method="post">
