@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Application\ViewRender;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
@@ -13,6 +14,8 @@ class RegisterController extends Controller
 
     public function store()
     {
-        return "here is store in register";
+        $this->csrf();
+
+        $user = new User();
     }
 }
