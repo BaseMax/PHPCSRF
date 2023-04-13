@@ -4,7 +4,7 @@ namespace App\Application;
 
 class Application
 {
-    protected Router $router;
+    public Router $router;
 
     public function __construct()
     {
