@@ -36,12 +36,11 @@ class Router
         $callbackArray = $this->routes[$httpVerb][$path] ?? [];
 
         if (!$callbackArray) {
-            echo "Page Not Found.";
-            exit;
+            return "Page Not Found.";
         }
 
         $controller = new  $callbackArray[0];
         $method = $callbackArray[1];
-        call_user_func(array($controller, $method));
+        return call_user_func(array($controller, $method));
     }
 }
