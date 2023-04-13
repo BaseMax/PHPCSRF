@@ -8,6 +8,7 @@ class Cookie
     {
         $time = time() + $time;
         setcookie('csrf_token', $csrfToken, time() + $time, '/', '', false, true);
+
         return $time;
     }
 
@@ -18,9 +19,6 @@ class Cookie
 
     public static function validate(string $csrf): bool
     {
-        if (Cookie::getCookie() !== $csrf) {
-            return false;
-        }
-        return true;
+        return !(Cookie::getCookie() !== $csrf);
     }
 }

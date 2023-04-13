@@ -14,20 +14,13 @@ class CSRF
     {
         $sessionCsrf = $_SESSION["CSRF_TOKEN"] ?? false;
 
-        if (!$sessionCsrf) {
-            return false;
-        }
-
-        if ($csrf !== $sessionCsrf) {
-            return false;
-        }
-
+        if (!$sessionCsrf) return false;
+        else if ($csrf !== $sessionCsrf) return false;
         return true;
     }
 
     static public function storeSCRF(): string
     {
-
         $_SESSION["CSRF_TOKEN"] = CSRF::generate();
 
         return $_SESSION["CSRF_TOKEN"];

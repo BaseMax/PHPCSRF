@@ -15,12 +15,13 @@ class Application
     {
         self::$ROOT_DIR = $rootPath;
         self::$app = $this;
+
         $this->response = new Response();
         $this->request = new Request();
         $this->router = new Router($this->request);
     }
 
-    public function run()
+    public function run(): void
     {
         echo $this->router->resolve();
     }

@@ -5,7 +5,6 @@ namespace App\Application;
 
 class Router
 {
-
     protected array $routes = [
         "get" => [],
         "post" => [],
@@ -37,11 +36,13 @@ class Router
 
         if (!$callbackArray) {
             Application::$app->response->setStatusCode(404);
+
             return ViewRender::render("_404");
         }
 
         $controller = new  $callbackArray[0];
         $method = $callbackArray[1];
+
         return call_user_func(array($controller, $method));
     }
 }

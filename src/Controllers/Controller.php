@@ -38,14 +38,12 @@ class Controller
             return ViewRender::render("_403");
         }
 
-        if (Cookie::validate($userData["csrf_token"])) {
-            return true;
-        }
+        if (Cookie::validate($userData["csrf_token"])) return true;
 
-        if (CSRF::validate($userData["csrf_token"])) {
-            return true;
-        }
+        if (CSRF::validate($userData["csrf_token"])) return true;
+
         $this->response()->setStatusCode(403);
+
         return ViewRender::render("_403");
     }
 }
