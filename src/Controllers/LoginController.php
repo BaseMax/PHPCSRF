@@ -3,6 +3,10 @@
 namespace App\Controllers;
 
 
-class LoginCOntroller extends Controller
+class LoginController extends Controller
 {
+    public function show()
+    {
+        echo "here is show method in controller";
+    }
 }

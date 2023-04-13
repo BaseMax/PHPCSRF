@@ -21,14 +21,27 @@ class Router
 
     public function get(string $path, array $callback)
     {
+        $this->routes["get"][$path] = $callback;
     }
 
     public function post(string $path, array $callback)
     {
+        $this->routes["post"][$path] = $callback;
     }
 
     public function resolve()
     {
-        var_dump($this->request->getPath());
+        $path = $this->request->getPath();
+        $httpVerb = $this->request->getMethod();
+        $callbackArray = $this->routes[$httpVerb][$path] ?? [];
+
+        if (!$callbackArray) {
+            echo "Page Not Found.";
+            exit;
+        }
+
+        $controller = new  $callbackArray[0];
+        $method = $callbackArray[1];
+        call_user_func(array($controller, $method));
     }
 }
