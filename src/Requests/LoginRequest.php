@@ -8,4 +8,12 @@ class LoginRequest implements Request
     {
         return [];
     }
+
+    public static function roles(): array
+    {
+        return [
+            "email" => [self::RULE_EMAIL, self::RULE_REQUIRED],
+            "password" => [self::RULE_REQUIRED]
+        ];
+    }
 }
