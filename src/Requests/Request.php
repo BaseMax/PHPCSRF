@@ -2,6 +2,7 @@
 
 namespace App\Requests;
 
-class Request
+interface Request
 {
+    public function validate(array $userData);
 }
