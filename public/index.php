@@ -6,6 +6,8 @@ use App\Application\Application;
 
 $app = new Application(dirname(__DIR__));
 
+session_start();
+
 $app->router->get("/", [App\Controllers\HomeController::class, "home"]);
 
 $app->router->get("/login", [App\Controllers\LoginController::class, "show"]);

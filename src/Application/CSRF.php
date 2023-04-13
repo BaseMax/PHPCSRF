@@ -27,6 +27,7 @@ class CSRF
 
     static public function storeSCRF(): string
     {
+
         $_SESSION["CSRF_TOKEN"] = CSRF::generate();
 
         return $_SESSION["CSRF_TOKEN"];

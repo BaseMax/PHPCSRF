@@ -14,6 +14,11 @@ class LoginController extends Controller
 
     public function store()
     {
-        return $this->getBody();
+        $userData = $this->getBody();
+
+        if (!CSRF::validate($userData["csrf_token"])) {
+            $this->response()->setStatusCode(403);
+            return ViewRender::render("_403");
+        }
     }
 }
