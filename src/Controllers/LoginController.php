@@ -9,6 +9,6 @@ class LoginController extends Controller
 {
     public function show()
     {
-        return ViewRender::render("login");
+        return ViewRender::renderWithToken("login");
     }
 }

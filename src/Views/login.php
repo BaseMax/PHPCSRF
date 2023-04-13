@@ -26,7 +26,7 @@
                         <input type="checkbox" class="form-check-input" id="remember" name="remember">
                         <label class="form-check-label" for="remember">Remember me</label>
                     </div>
-                    <input type="hidden" name="csrf_token" value="YOUR_CSRF_TOKEN_HERE">
+                    <input type="hidden" name="csrf_token" value="{{csrf}}">
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                 </form>
             </div>

@@ -8,6 +8,6 @@ class RegisterController extends Controller
 {
     public function show()
     {
-        return ViewRender::render("register");
+        return ViewRender::renderWithToken("register");
     }
 }

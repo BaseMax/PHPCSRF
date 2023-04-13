@@ -25,10 +25,10 @@ class CSRF
         return true;
     }
 
-    static public function storeSCRF(): bool
+    static public function storeSCRF(): string
     {
         $_SESSION["CSRF_TOKEN"] = CSRF::generate();
 
-        return true;
+        return $_SESSION["CSRF_TOKEN"];
     }
 }

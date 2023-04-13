@@ -12,7 +12,7 @@
     <div class="container">
         <h1 class="text-center my-5">Register</h1>
         <form method="post" action="register.php">
-            <input type="hidden" name="csrf_token" value="{{ $token }}">
+            <input type="hidden" name="csrf_token" value="{{csrf}}">
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" required>

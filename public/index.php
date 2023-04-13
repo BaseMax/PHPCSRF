@@ -4,7 +4,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use App\Application\Application;
 
-$app = new Application();
+$app = new Application(dirname(__DIR__));
 
 $app->router->get("/", [App\Controllers\HomeController::class, "home"]);
 
