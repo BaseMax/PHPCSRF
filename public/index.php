@@ -10,6 +10,8 @@ $dotenv->load();
 
 $app = new Application(dirname(__DIR__));
 
+define("LOADED", true);
+
 
 session_start();
 

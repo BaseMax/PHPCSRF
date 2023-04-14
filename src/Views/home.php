@@ -1,3 +1,4 @@
+<?php if (!defined("LOADED")) exit; ?>
 <!DOCTYPE html>
 <html>
 
