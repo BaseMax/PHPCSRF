@@ -31,7 +31,7 @@ class Database
         ];
     }
 
-    public function applyMigration(): never
+    public function applyMigration()
     {
         // $files = scandir(Application::$ROOT_DIR . "/src/Migrations");
 

@@ -13,3 +13,4 @@ $dotenv->load();
 $app = new Application(__DIR__);
 
 $app->db->applyMigration();
+

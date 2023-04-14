@@ -29,9 +29,12 @@ class Controller
         return $this->app()->response;
     }
 
-    protected function csrf(): bool
+    protected function csrf()
     {
         $userData = $this->getBody();
+	
+
+	# echo $userData["csrf_token"];
 
         if (!$userData["csrf_token"]) {
             $this->response()->setStatusCode(403);
