@@ -43,6 +43,6 @@ class Router
         $controller = new  $callbackArray[0];
         $method = $callbackArray[1];
 
-        return call_user_func(array($controller, $method));
+        return call_user_func([$controller, $method]);
     }
 }
