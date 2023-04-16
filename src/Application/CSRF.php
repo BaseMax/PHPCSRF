@@ -2,7 +2,6 @@
 
 namespace App\Application;
 
-
 class CSRF
 {
     static public function generate(): string

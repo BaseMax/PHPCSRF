@@ -2,7 +2,6 @@
 
 namespace App\Application;
 
-
 class Router
 {
     public Request $request;

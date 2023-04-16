@@ -11,7 +11,9 @@ class LogoutController extends Controller
     {
         session_unset();
         session_destroy();
+
         Cookie::destroyCookie("session_id");
+
         Redirect::redirectTo("login");
     }
 }

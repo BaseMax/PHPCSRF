@@ -10,10 +10,6 @@ use App\Application\Redirect;
 
 class RegisterController extends Controller
 {
-    /*
-    *
-    *
-    */
     public function show()
     {
         return ViewRender::renderWithToken("register");
@@ -31,8 +27,6 @@ class RegisterController extends Controller
         $user->password = Hash::make($validatedData["password"]);
         $user->fullname = $validatedData["fullname"];
 
-        if ($user->save()) {
-            Redirect::redirectTo("login");
-        }
+        if ($user->save()) Redirect::redirectTo("login");
     }
 }
