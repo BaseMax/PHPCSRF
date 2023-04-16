@@ -12,6 +12,7 @@ class LoginRequest implements Request
 
         foreach ($roles as $attribute => $roles) {
             $value = $userData[$attribute];
+
             foreach ($roles as $role) {
 
                 $roleName = $role;
@@ -21,6 +22,7 @@ class LoginRequest implements Request
                 else if ($roleName === self::RULE_EMAIL && !self::isEmail($value)) return Redirect::redirectBack();
             }
         }
+
         return $userData;
     }
 
@@ -35,6 +37,6 @@ class LoginRequest implements Request
     public static function isEmail(string $email): bool
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) return true;
-        return false;
+        else return false;
     }
 }

@@ -7,8 +7,9 @@ class Application
     public Router $router;
     public Request $request;
     public Response $response;
-    public static Application $app;
     public Database $db;
+
+    public static Application $app;
     public static string $ROOT_DIR;
 
     public function __construct(string $rootPath)

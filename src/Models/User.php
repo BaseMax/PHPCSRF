@@ -21,17 +21,12 @@ class User extends Model
         $attributes = $this->attributes();
 
         $columns = implode(",", $attributes);
-
         $params = implode(",", array_map(fn ($attr) => ":$attr", $attributes));
 
+        $statment = self::prepare("INSERT INTO $table ($columns) VALUES ($params);");
 
-        $statment = self::prepare("INSERT INTO $table ($columns) 
-                                    VALUES ($params)");
-
-
-        foreach ($attributes as $attribute) {
+        foreach ($attributes as $attribute)
             $statment->bindValue(":$attribute", $this->{$attribute});
-        }
 
         $statment->execute();
 
