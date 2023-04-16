@@ -33,23 +33,18 @@ class Database
 
     public function applyMigration()
     {
-        // $files = scandir(Application::$ROOT_DIR . "/src/Migrations");
-
         // $migrations = [];
-
+        // $files = scandir(Application::$ROOT_DIR . "/src/Migrations");
         // foreach ($files as $file) {
         //     if (substr($file, 0, 1) === "_")
         //         $migrations[] = $file;
         // }
 
         // foreach ($migrations as $migration) {
-
         //     require_once Application::$ROOT_DIR . "/src/Migrations/$migration";
-
         //     preg_match('/^_\d+_create_(\w+)_table\.php$/', $migration, $matches);
-
-        //     // $instance = new "App\Migrations\$migration()";
-
+        //     $instance = new ("App\Migrations\$migration()");
+        // 
         //     echo "Applying migration $migration\n";
         //     $instance->up();
         //     echo "Applied migration $migration\n";
@@ -61,7 +56,6 @@ class Database
                                 fullname VARCHAR(255) NOT NULL,
                                 password VARCHAR(255) NOT NULL        
                     )");
-
         $statment->execute();
 
         echo "Migration completed" . PHP_EOL;

@@ -9,9 +9,6 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-
-
-
         if (!isset($_SESSION['session_id'])) {
             Redirect::redirectTo("login");
         }

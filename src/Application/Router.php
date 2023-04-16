@@ -5,13 +5,12 @@ namespace App\Application;
 
 class Router
 {
+    public Request $request;
     protected array $routes = [
         "get" => [],
         "post" => [],
         "delete" => []
     ];
-
-    public Request $request;
 
     public function __construct(Request $request)
     {

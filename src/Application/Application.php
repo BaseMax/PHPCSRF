@@ -11,7 +11,6 @@ class Application
     public Database $db;
     public static string $ROOT_DIR;
 
-
     public function __construct(string $rootPath)
     {
         self::$ROOT_DIR = $rootPath;

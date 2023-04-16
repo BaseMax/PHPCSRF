@@ -16,7 +16,7 @@ class CSRF
 
         if (!$sessionCsrf) return false;
         else if ($csrf !== $sessionCsrf) return false;
-        return true;
+        else return true;
     }
 
     static public function storeSCRF(): string
